@@ -7,6 +7,9 @@ app.use(express.json());
 app.use('/auth',authRouter)
 app.use('/user',userRouter)
 app.use('/messages',messageRouter)
+app.use('*',(req,res)=>{
+    return res.status(400).json({message:"page not found"})
+})
 app.use(cors());
 }
 export default initApp;    
